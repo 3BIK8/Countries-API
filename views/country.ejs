@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Explore a list of countries and regions."
+		/>
+		<meta name="keywords" content="countries, regions, world" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,800;1,6..12,600&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://kit.fontawesome.com/b35556898e.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="stylesheet" href="../styles.css" />
+		<title>Country</title>
+	</head>
+	<body id="template-body">
+		<header>
+			<a href="#" class="title btn">Where in the world?</a>
+			<a href="#" class="toggle" id="toggleButton"
+				><i class="fa-solid fa-moon"></i> Dark Mode</a
+			>
+		</header>
+		<main>
+			<button class="back btn">
+				<i class="fa-solid fa-arrow-left"></i> Back
+			</button>
+			<article class="main-content">
+				<div class="image-container">
+					<img src="<%= country.flag %>" alt="flag" />
+				</div>
+				<div class="content">
+					<h1 class="name"><%= country.name %></h1>
+					<ul class="content-grid">
+						<!-- country.ejs -->
+						<li class="list-item">
+							<span class="first-word">Native name: </span><%=
+							country.nativeName %>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Population: </span><%= country.population
+							%>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Region: </span><%= country.region %>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Sub region: </span><%= country.subregion
+							%>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Capital: </span><%= country.capital %>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Top level domain: </span><%=
+							country.topLevelDomain[0] %>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Currencies: </span><%
+							country.currencies.forEach(function(language) { %> <%=
+							language.name %>, <% }); %>
+						</li>
+						<li class="list-item">
+							<span class="first-word">Languages: </span>
+							<% country.languages.forEach(function(language) { %> <%=
+							language.name %>, <% }); %>
+						</li>
+						<li class="list-item last">
+							<span class="first-word">Border countries: </span>
+							<ul class="list">
+								<% if (country && country.borders) {
+								country.borders.forEach(function(border) { const borderCountry =
+								data.find(c => c.alpha3Code === border); if (borderCountry) {
+								const borderCountryName = borderCountry.name; %>
+								<li class="last-item">
+									<button class="country"><%= borderCountryName %></button>
+								</li>
+								<% } }); } %>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</article>
+		</main>
+		<script src="../Escript.js"></script>
+		<script src="../lightmode.js"></script>
+	</body>
+</html>

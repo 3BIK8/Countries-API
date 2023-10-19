@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--    meta tags  -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="Explore a list of countries and regions."
+		/>
+		<meta name="keywords" content="countries, regions, world" />
+		<meta charset="UTF-8" />
+		<meta property="og:title" content="Country List" />
+		<meta
+			property="og:description"
+			content="Explore a list of countries and regions."
+		/>
+
+		<!-- Preconnect to Google Fonts for improved loading -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+		<!-- Include Google Fonts stylesheet for font customization -->
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,800;1,6..12,600&display=swap"
+			rel="stylesheet"
+		/>
+
+		<!-- Include Font Awesome icons for icon usage -->
+		<script
+			src="https://kit.fontawesome.com/b35556898e.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="icon" type="image/svg+xml" href="https://flagcdn.com/ps.svg" />
+
+		<link rel="stylesheet" href="./style.css" />
+
+		<!-- Set the title of the web page -->
+		<title>Country List</title>
+	</head>
+	<body id="template-body">
+		<header>
+			<a href="#" class="title">Where in the world?</a>
+			<a href="#" class="toggle" id="toggleButton"
+				><i class="fa-solid fa-sun"></i> Light Mode</a
+			>
+		</header>
+		<main>
+			<nav class="search">
+				<div class="search-wrapper">
+					<i class="fa-solid fa-magnifying-glass search-icon"></i>
+					<input
+						type="text"
+						name="search"
+						id="search-container"
+						placeholder="Search for a country..."
+						autocomplete="off"
+					/>
+					<div id="autocomplete-dropdown"></div>
+				</div>
+				<select id="region-filter" class="dropdown" name="Filter By Region">
+					<!-- Dropdown menu for filtering by region -->
+					<option value="" class="A33" disabled selected>
+						<span class="span">Filter By Region</span>
+					</option>
+					<option value="Africa">Africa</option>
+					<option value="Americas">America</option>
+					<option value="Asia">Asia</option>
+					<option value="Europe">Europe</option>
+					<option value="Oceania">Oceania</option>
+				</select>
+			</nav>
+			<article class="main-content" id="country-cards-container">
+				<!-- Container for displaying country cards -->
+				<template id="card-template">
+					<!-- Template for individual country cards -->
+					<div class="card">
+						<div class="country-image"></div>
+						<div class="country-info">
+							<p class="country-name"></p>
+							<span class="pop"></span>
+							<span class="region"></span>
+							<span class="capital"></span>
+						</div>
+					</div>
+				</template>
+			</article>
+		</main>
+		<script src="./script.js" async></script>
+		<script src="./lightmode.js" async></script>
+	</body>
+</html>
