@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "index.html"));
 });
 
+
 app.get("/:countryName", (req, res) => {
 	const countryName = req.params.countryName;
 	// Fetch the country data based on the countryName
