@@ -35,7 +35,7 @@ app.get("/:countryName", (req, res) => {
 	}
 });
 
-// Error handling middleware
+// Error handling middleware (should be placed at the end)
 app.use((err, req, res, next) => {
 	console.error(err.stack);
 	res.status(500).send("Something broke!");
